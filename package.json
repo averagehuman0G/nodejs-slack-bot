@@ -10,7 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/jonathanv3232/nodejs-slack-bot.git"
   },
-  "keywords": ["node", "express", "natural language processing", "microservice"],
+  "keywords": [
+    "node",
+    "express",
+    "natural language processing",
+    "microservice"
+  ],
   "author": "Jonathan Vargas",
   "license": "ISC",
   "bugs": {
@@ -18,6 +23,8 @@
   },
   "homepage": "https://github.com/jonathanv3232/nodejs-slack-bot#readme",
   "dependencies": {
+    "@slack/client": "^3.15.0",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2"
   }
 }
