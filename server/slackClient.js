@@ -8,11 +8,21 @@ function logOnAuthentication(rtmStartData) {
 }
 
 function handleOnMessage(message) {
-  nlp.ask(message.text);
-  rtm.sendMessage('wus good!!!', message.channel)
-    // Returns a promise that resolves when the message is sent
-    .then(() => console.log(`Message sent`))
-    .catch(console.error);
+  nlp.ask(message.text, (err,res) => {
+    if(err) {
+      console.log(err);
+      return;
+    }
+    if(!res.intent) {
+      return rtm.sendMessage('What are you even sayin boi', message.channel);
+    } else if(res.intent[0].value == 'time' && res.location) {
+      return rtm.sendMessage(`I know you are trying to get the time for ${res.location[0].value}, but your boi hasn't implemented that yet`, message.channel);
+    } else {
+      console.log(res);
+      return rtm.sendMessage('What are you even sayin boi', message.channel);
+    }
+
+  });
 }
 
 function hasAuthenticated(rtm, handler) {
