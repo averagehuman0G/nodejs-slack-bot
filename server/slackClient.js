@@ -35,8 +35,6 @@ function handleOnMessage(message) {
       }
       if(!res.intent) {
         return rtm.sendMessage('What are you even sayin boi', message.channel);
-      } else if(res.intent[0].value == 'time' && res.location) {
-        return rtm.sendMessage(`I know you are trying to get the time for ${res.location[0].value}, but your boi hasn't implemented that yet`, message.channel);
       } else {
         console.log(res);
         return rtm.sendMessage('What are you even sayin boi', message.channel);

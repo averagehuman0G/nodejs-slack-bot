@@ -27,5 +27,9 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "superagent": "^3.8.2"
-  }
+  },
+  "bin": {
+    "bot-time": "run.js"
+  },
+  "devDependencies": {}
 }
