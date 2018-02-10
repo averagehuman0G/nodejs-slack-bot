@@ -7,14 +7,15 @@ const service = require('../server/service');
 const http = require('http');
 const server = http.createServer(service);
 
-
 const witToken = process.env.WIT_TOKEN;
 const witClient = require('../server/witClient')(witToken);
 
 const slackToken = process.env.SLACK_TOKEN;
 const slackLogLevel = 'verbose';
 
-const rtm = slackClient.init(slackToken, slackLogLevel, witClient);
+const registry = service.get('registry');
+
+const rtm = slackClient.init(slackToken, slackLogLevel, witClient, registry);
 
 rtm.start();
 

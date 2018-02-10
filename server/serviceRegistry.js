@@ -37,7 +37,7 @@ class ServiceRegistry {
   get(intent) {
     this._removeUnavailableServices();
     for (let key in this._services) {
-      if (intent === this._services[key].intent) return this._services[key].intent;
+      if (intent === this._services[key].intent) return this._services[key];
       return null;
     }
   }
